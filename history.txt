@@ -1,0 +1,1000 @@
+  996  sudo add-apt-repository ppa:giuspen/ppa
+  997  sudo apt-get update
+  998  sudo apt-get install x-tile
+  999  https://launchpad.net/~giuspen/+archive/ubuntu/ppa/+files/x-tile_3.3-0_all.deb && sudo apt-get update && sudo apt-get install ./x-tile_3.3-0_all.deb
+ 1000  wget -c https://launchpad.net/~giuspen/+archive/ubuntu/ppa/+files/x-tile_3.3-0_all.deb
+ 1001  ls
+ 1002  sudo apt install ./x-tile_3.3-0_all.deb 
+ 1003  sudo remove-apt-repository ppa:giuspen/ppa
+ 1004  sudo apt-add-repository --remove ppa:giuspen/ppa
+ 1005  sudo apt-get update
+ 1006  apt remove x-tile
+ 1007  sudo apt remove x-tile
+ 1008  sudo apt install x-tile
+ 1009  sudo apt remove x-tile
+ 1010  sudo apt install x-tile
+ 1011  ls
+ 1012  cp *.svg /usr/share/pixmaps
+ 1013  sudo cp *.svg /usr/share/pixmaps/
+ 1014  cd ..
+ 1015  ls
+ 1016  ./matrix_wrapper 
+ 1017  sudo apt-get install xdotool
+ 1018  pip install python3-gi-cairo
+ 1019  sudo pip install python3-gi-cairo
+ 1020  sudo pip3 install python3-gi-cairo
+ 1021  sudo apt-get install python3-gi-cairo
+ 1022  ls
+ 1023  ./matrix_wrapper 
+ 1024  npm i
+ 1025  ng serve
+ 1026  cd dados
+ 1027  ls
+ 1028  cd playground/
+ 1029  ls
+ 1030  cd ..
+ 1031  ls
+ 1032  mkdir tours
+ 1033  cd tours
+ 1034  ng new angular-tour-of-heroes
+ 1035  cd angular-tour-of-heroes/
+ 1036  cd ..
+ 1037  mkdir ng
+ 1038  cd ng
+ 1039  mv ../angular-tour-of-heroes/ ./
+ 1040  ls
+ 1041  cd angular-tour-of-heroes/
+ 1042  ls
+ 1043  code .
+ 1044  ng serve --open
+ 1045  cd dados/tours/ng/angular-tour-of-heroes/
+ 1046  ng g c heroes
+ 1047  ng g service hero
+ 1048  ng g c messages
+ 1049  ng g s message
+ 1050  ng g c hero-detail
+ 1051  ng serve
+ 1052  cls
+ 1053  clear
+ 1054  ng g module app-routing --flat --module=app
+ 1055  ng generate component dashboard
+ 1056  npm i angular-in-memory-web-api --save
+ 1057  ng g s InMemoryData
+ 1058  ng serve
+ 1059  ng g c hero-search
+ 1060  sudo vim /etc/hosts
+ 1061  exit
+ 1062  ls
+ 1063  cd dados
+ 1064  ls
+ 1065  cd projects/
+ 1066  ls
+ 1067  mkdir ddd
+ 1068  cd ddd
+ 1069  git clone git@github.com:danilobatistaqueiroz/dddsample-core.git
+ 1070  cd dddsample-core/
+ 1071  code .
+ 1072  ng cache info
+ 1073  ng analytics info
+ 1074  ng config
+ 1075  ng extract-i18n
+ 1076  cd ..
+ 1077  ls
+ 1078  cd ..
+ 1079  ls
+ 1080  cd devio
+ 1081  ls
+ 1082  cd statestore/
+ 1083  ng extract-i18n
+ 1084  cd ..
+ 1085  ls
+ 1086  cd ..
+ 1087  cd ionic/
+ 1088  ls
+ 1089  cd ionlabs/
+ 1090  ls
+ 1091  npm i @angular/localize
+ 1092  ng extract-i18n
+ 1093  ls
+ 1094  ll
+ 1095  cat messages.xlf
+ 1096  sudo apt install gthumb
+ 1097  ls
+ 1098  ll
+ 1099  ls
+ 1100  ls > lista.txt
+ 1101  cat lista.txt
+ 1102  ionic start iddd --type=angular --capacitor
+ 1103  ls
+ 1104  cd iddd
+ 1105  ls
+ 1106  code .
+ 1107  npm install @capacitor/filesystem
+ 1108  ng serve
+ 1109  ionic build
+ 1110  ionic cap add android
+ 1111  ionic cap copy
+ 1112  npm install capacitor-volume-buttons
+ 1113  npx cap sync
+ 1114  ionic build
+ 1115  ionic cap copy
+ 1116  ionic build
+ 1117  ionic cap add android
+ 1118  ionic cap copy
+ 1119  ionic build
+ 1120  ionic cap add android
+ 1121  ionic cap copy
+ 1122  ionic build
+ 1123  ionic cap copy
+ 1124  ionic build
+ 1125  ionic cap copy
+ 1126  ionic build
+ 1127  ionic cap copy
+ 1128  ionic build
+ 1129  ionic cap copy
+ 1130  ionic build
+ 1131  ionic cap copy
+ 1132  ionic build
+ 1133  ionic cap copy
+ 1134  ionic build
+ 1135  ionic cap copy
+ 1136  ionic build
+ 1137  ionic cap copy
+ 1138  ionic build
+ 1139  ionic cap copy
+ 1140  ionic build
+ 1141  ionic cap copy
+ 1142  ionic build
+ 1143  ionic cap copy
+ 1144  ionic build
+ 1145  ionic cap copy
+ 1146  npm install cordova-plugin-screen-orientation
+ 1147  npx cap update
+ 1148  npm i es6-promise-plugin
+ 1149  npx cap update
+ 1150  ionic build
+ 1151  ionic cap copy
+ 1152  ionic build
+ 1153  ionic cap add android
+ 1154  history
+ 1155  ionic cap sync
+ 1156  ionic build
+ 1157  ionic cap copy
+ 1158  ionic build
+ 1159  ionic cap copy
+ 1160  ionic build
+ 1161  ionic cap copy
+ 1162  ionic build
+ 1163  ionic cap copy
+ 1164  ionic build
+ 1165  ionic cap copy
+ 1166  ionic build
+ 1167  ionic cap copy
+ 1168  ionic build
+ 1169  ionic cap copy
+ 1170  ionic build
+ 1171  ionic cap copy
+ 1172  ionic build
+ 1173  ionic cap copy
+ 1174  ionic build
+ 1175  ionic cap copy
+ 1176  ionic build
+ 1177  ionic cap copy
+ 1178  ionic build
+ 1179  ionic cap copy
+ 1180  ionic build
+ 1181  ionic cap copy
+ 1182  ionic build
+ 1183  ionic cap copy
+ 1184  ionic build
+ 1185  ionic cap copy
+ 1186  ionic build
+ 1187  ionic cap copy
+ 1188  ionic build
+ 1189  ionic cap copy
+ 1190  ionic build
+ 1191  ionic cap copy
+ 1192  ionic build
+ 1193  ionic cap copy
+ 1194  ionic build
+ 1195  ionic cap copy
+ 1196  ionic build
+ 1197  ionic cap copy
+ 1198  ionic build
+ 1199  ionic cap copy
+ 1200  ionic build
+ 1201  ionic cap copy
+ 1202  ionic build
+ 1203  ionic cap copy
+ 1204  ionic build
+ 1205  ionic cap copy
+ 1206  ionic build
+ 1207  ionic cap copy
+ 1208  ionic build
+ 1209  ionic cap copy
+ 1210  ionic build
+ 1211  ionic cap copy
+ 1212  ionic build
+ 1213  ionic cap copy
+ 1214  ionic build
+ 1215  ionic cap copy
+ 1216  ng serve
+ 1217  ionic build
+ 1218  ionic cap copy
+ 1219  ionic build
+ 1220  ionic cap copy
+ 1221  ionic build
+ 1222  ionic cap copy
+ 1223  ionic build
+ 1224  ionic cap copy
+ 1225  ionic build
+ 1226  ionic cap copy
+ 1227  ionic build
+ 1228  ionic cap copy
+ 1229  ionic build
+ 1230  ionic cap copy
+ 1231  ionic build
+ 1232  ionic cap copy
+ 1233  ionic build
+ 1234  ionic cap copy
+ 1235  ionic build
+ 1236  ionic cap copy
+ 1237  ng serve
+ 1238  ionic build
+ 1239  ionic cap copy
+ 1240  ionic build
+ 1241  ionic cap copy
+ 1242  ionic cap sync
+ 1243  ionic build
+ 1244  ionic cap copy
+ 1245  ionic cap add android
+ 1246  ionic cap copy
+ 1247  ionic cap add android
+ 1248  ionic build
+ 1249  ionic cap copy
+ 1250  ng
+ 1251  ng --help
+ 1252  ng add --help
+ 1253  ng new page panel
+ 1254  ls
+ 1255  ionic new page menu
+ 1256  ionic genereta page menu
+ 1257  ionic generate page menu
+ 1258  ionic generate page introduction
+ 1259  ionic generate page domains
+ 1260  ionic generate page services
+ 1261  ionic generate page integrating
+ 1262  ionic generate page architecture
+ 1263  ionic serve
+ 1264  ls
+ 1265  ls > lista.txt
+ 1266  ls > list.txt
+ 1267  cd dados/iddd/iddd
+ 1268  ls
+ 1269  ionic serve
+ 1270  npm install angular-draggable-droppable
+ 1271  npm i
+ 1272  ionic serve
+ 1273  ionic build
+ 1274  ionic cap copy
+ 1275  ionic cap add android
+ 1276  ionic build
+ 1277  ionic cap copy
+ 1278  ionic cap add android
+ 1279  ionic build
+ 1280  ionic cap copy
+ 1281  npm install -g cordova-res
+ 1282  cordova-res ios --skip-config --copy
+ 1283  cordova-res android --skip-config --copy
+ 1284  ionic build
+ 1285  ionic cap copy
+ 1286  ionic cap add android
+ 1287  ionic build
+ 1288  ionic cap copy
+ 1289  cordova-res android --skip-config --copy
+ 1290  ionic cap copy
+ 1291  ionic serve
+ 1292  ng generate component application
+ 1293  ng generate component events
+ 1294  ionic build
+ 1295  ng generate component presentation
+ 1296  ionic cap copy
+ 1297  ionic serve
+ 1298  ls > lista.txt
+ 1299  gedit lista.txt
+ 1300  rm lista.txt 
+ 1301  cd ..
+ 1302  npm i @ionic-native/insomnia
+ 1303  npm i @ionic-native/core
+ 1304  ng generate page application
+ 1305  ng generate page presentation
+ 1306  ng generate page events
+ 1307  cd ..
+ 1308  ls
+ 1309  ls -a
+ 1310  git log
+ 1311  git status
+ 1312  ls -a
+ 1313  git add .
+ 1314  vim .gitignore 
+ 1315  git status
+ 1316  vim .gitignore 
+ 1317  git status
+ 1318  vim .gitignore 
+ 1319  git status
+ 1320  git add .
+ 1321  git status
+ 1322  git commit -m "botoes de navegacao draggable e marcadores de caneta funcionando na pagina inicial"
+ 1323  ng generate page bookmarks
+ 1324  ls
+ 1325  cd dados
+ 1326  ls
+ 1327  cd projects/
+ 1328  ls
+ 1329  cd ionic/
+ 1330  ls
+ 1331  cd player/
+ 1332  ls
+ 1333  cd wordsplayer/
+ 1334  ls
+ 1335  code .
+ 1336  top
+ 1337  ionic build
+ 1338  ionic cap copy
+ 1339  cls
+ 1340  clear
+ 1341  history
+ 1342  cordova-res android --skip-config --copy
+ 1343  ionic cap copy
+ 1344  cordova-res android --skip-config --copy
+ 1345  ionic build
+ 1346  ionic g page splash
+ 1347  ionic serve
+ 1348  cordova-res android --skip-config --copy
+ 1349  ionic build
+ 1350  ionic cap copy
+ 1351  npm install @capacitor/splash-screen
+ 1352  ionic cap sync
+ 1353  cordova-res android --skip-config --copy
+ 1354  ionic capacitor run android -l --external
+ 1355  avdmanager 
+ 1356  avdmanager list
+ 1357  avdmanager 
+ 1358  avdmanager list device
+ 1359  avdmanager 
+ 1360  ionic run android --device
+ 1361  ionic deploy
+ 1362  adb devices
+ 1363  ionic cap copy
+ 1364  ionic cap add android
+ 1365  ionic build
+ 1366  ionic cap copy
+ 1367  adb devices
+ 1368  cordova-res android --skip-config --copy
+ 1369  ionic build
+ 1370  cordova-res android --skip-config --copy
+ 1371  ionic cap copy
+ 1372  ionic build
+ 1373  ionic cap copy
+ 1374  ionic serve
+ 1375  ionic build
+ 1376  ionic cap copy
+ 1377  ionic build
+ 1378  ionic cap copy
+ 1379  ionic build
+ 1380  ionic cap copy
+ 1381  sudo vim /etc/hosts
+ 1382  ls > lista.txt
+ 1383  rm lista.txt 
+ 1384  printenv
+ 1385  printenv | grep 'ANDROID_HOME'
+ 1386  ls /home/element/android-sds
+ 1387  ls /home/element/android-sdk
+ 1388  ionic cap sync
+ 1389  ionic build
+ 1390  ionic cap copy
+ 1391  ionic cap sync
+ 1392  ionic cap add android
+ 1393  ionic build
+ 1394  ionic cap copy
+ 1395  ionic build
+ 1396  ionic cap copy
+ 1397  adb devices
+ 1398  printenv | grep 'ANDROID_HOME'
+ 1399  ionic cap add android
+ 1400  ionic cap copy
+ 1401  printenv | grep 'ANDROID_HOME'
+ 1402  ionic build
+ 1403  ionic cap copy
+ 1404  ionic build
+ 1405  ionic cap copy
+ 1406  ionic build
+ 1407  ionic cap copy
+ 1408  ionic build
+ 1409  ionic cap copy
+ 1410  ionic build
+ 1411  ionic cap copy
+ 1412  ionic build
+ 1413  ionic cap copy
+ 1414  ionic build
+ 1415  ionic cap copy
+ 1416  ionic serve
+ 1417  ls > lista.txt
+ 1418  pluma lista.txt
+ 1419  rm lista.txt 
+ 1420  ionic build
+ 1421  ionic cap copy
+ 1422  adb devices
+ 1423  ionic build
+ 1424  ionic cap copy
+ 1425  ionic serve
+ 1426  ionic g page base
+ 1427  ionic serve
+ 1428  ionic build
+ 1429  ionic cap copy
+ 1430  ionic serve
+ 1431  git
+ 1432  git status
+ 1433  git log
+ 1434  git add .
+ 1435  git commit -m "botoes draggable com touch e marcador de caneta com touch"
+ 1436  ionic serve
+ 1437  ionic build
+ 1438  ionic cap copy
+ 1439  ionic serve
+ 1440  ionic g c takenotes
+ 1441  ionic serve
+ 1442  ionic build
+ 1443  ionic cap copy
+ 1444  ionic g page takenotes
+ 1445  ionic serve
+ 1446  ionic build
+ 1447  ionic cap copy
+ 1448  ionic serve
+ 1449  ionic build
+ 1450  ionic serve
+ 1451  ionic generate page context
+ 1452  ionic generate page entities
+ 1453  ionic generate page vos
+ 1454  ionic generate page modules
+ 1455  ionic generate page aggregates
+ 1456  ionic generate page factories
+ 1457  ionic generate page prospecting
+ 1458  ionic build
+ 1459  ionic cap copy
+ 1460  top
+ 1461  ls > lista.txt
+ 1462  exit
+ 1463  for file in *.jpg; do convert $file -resize 20% r$file; done
+ 1464  ls > lista.txt
+ 1465  rm lista.txt 
+ 1466  for file in *.jpg; do convert $file -resize 40% i$file; done
+ 1467  top
+ 1468  wmctrl -lp
+ 1469  xprop | grep WM_CLASS
+ 1470  xprop | awk '/PID/ {print $3}'
+ 1471  ps aux -q 84593
+ 1472  sudo apt install okular
+ 1473  for file in *.jpg; do convert $file -resize 30% e$file; done
+ 1474  for file in *.jpg; do convert $file -resize 25% -rotate 90 i$file; done
+ 1475  for file in *.jpg; do convert $file -resize 35% -rotate 90 i$file; done
+ 1476  for file in *.jpg; do convert $file -resize 35% i$file; done
+ 1477  convert -resize 50% 20230130_162404.jpg 20230130_162404_2.jpg
+ 1478  convert -resize 15% 20230130_162404.jpg 20230130_162404_2.jpg
+ 1479  convert -rotate 90 -resize 15% 20230130_162404.jpg 20230130_162404_2.jpg
+ 1480  for file in *.jpg; do convert $file -resize 15% -rotate 90 i$file; done
+ 1481  cd dados
+ 1482  cd tutorials/
+ 1483  ls
+ 1484  cd ionic/
+ 1485  ls
+ 1486  ionic start splashAnimation sidemenu
+ 1487  cd ./splashAnimation/
+ 1488  ls
+ 1489  ls src
+ 1490  ls src/app
+ 1491  cordova-res --skip-config --copy
+ 1492  ls
+ 1493  mkdir resources
+ 1494  cordova-res --skip-config --copy
+ 1495  mkdir resources/android
+ 1496  ls resources/android
+ 1497  cordova-res --skip-config --copy
+ 1498  ionic cordova resources
+ 1499  code .
+ 1500  ionic cordova resources
+ 1501  cordova prepare
+ 1502  ionic cordova prepare
+ 1503  ionic integrations enable cordova --add
+ 1504  ionic serve
+ 1505  ionic build
+ 1506  ionic cap copy
+ 1507  ionic build
+ 1508  ionic cap copy
+ 1509  ionic build
+ 1510  ionic cap copy
+ 1511  ionic build
+ 1512  ionic cap copy
+ 1513  ionic build
+ 1514  ionic cap copy
+ 1515  ionic serve
+ 1516  ionic build
+ 1517  ionic cap copy
+ 1518  ionic build
+ 1519  ionic cap copy
+ 1520  ionic build
+ 1521  for file in *.jpg; do convert $file -resize 35% mini/$file; done
+ 1522  for file in *.jpg; do { convert $file `echo $file|cut -d. -f1`.png ; } done
+ 1523  for file in *.jpg; do convert $file -resize 50% mini2/$file; done
+ 1524  for file in *.jpg; do convert $file -resize 50% p$file; done
+ 1525  ionic cap add android
+ 1526  ionic build
+ 1527  ionic cap copy
+ 1528  ionic integrations disable capacitor
+ 1529  ionic cordova build android
+ 1530  ionic cordova prepare
+ 1531  ionic cordova platform add android
+ 1532  ionic cordova resources
+ 1533  ionic cordova build android
+ 1534  ionic build
+ 1535  ionic cordova run android
+ 1536  npm install -g @ionic/cli native-run cordova-res
+ 1537  cd ..
+ 1538  ls
+ 1539  rm capacitor/
+ 1540  rm -rf capacitor/
+ 1541  ls
+ 1542  rm -rf cordova/
+ 1543  cd ..
+ 1544  rm -rf splashAnimation/
+ 1545  ionic start splash-animation tabs --type=angular --capacitor
+ 1546  cd ./splash-animation/
+ 1547  ionic capacitor add android
+ 1548  cd dados/tutorials/ionic/
+ 1549  ls
+ 1550  ionic start --help
+ 1551  ionic start --list
+ 1552  ionic start splashes sidemenu --type=angular --capacitor
+ 1553  ls
+ 1554  cd splashes
+ 1555  ls
+ 1556  ionic capacitor add android
+ 1557  ls
+ 1558  ls android/app/src/main/res/
+ 1559  rm -rf android/app/src/main/res/*
+ 1560  ls android/app/src/main/res/
+ 1561  ls android/app/src/main/
+ 1562  cordova-res --skip-config --copy
+ 1563  ls android/app/src/main/res/
+ 1564  ls
+ 1565  cordova-res --skip-config --copy
+ 1566  ionic build
+ 1567  ionic cap copy
+ 1568  ionic cap sync
+ 1569  adb devices
+ 1570  ls
+ 1571  for file in *.jpg; do convert $file -resize 50% new/$file; done
+ 1572  ls > lista.txt
+ 1573  cd ..
+ 1574  cd presentation/
+ 1575  ls
+ 1576  ls > lista.txt
+ 1577  code lista.txt 
+ 1578  ls
+ 1579  rm lista.txt 
+ 1580  cd ..
+ 1581  cd context/
+ 1582  ls > lista.txt
+ 1583  code lista.txt 
+ 1584  ls
+ 1585  rm lista.txt 
+ 1586  cd ..
+ 1587  cd entities/
+ 1588  ls > lista.txt
+ 1589  code lista.txt 
+ 1590  rm lista.txt 
+ 1591  ionic serve
+ 1592  ionic g page rests
+ 1593  ionic serve
+ 1594  ionic build
+ 1595  ionic cap copy
+ 1596  ls > list.txt
+ 1597  code list.txt 
+ 1598  rm list.txt 
+ 1599  ls > list.txt
+ 1600  code list.txt 
+ 1601  rm list.txt 
+ 1602  ls > list.txt
+ 1603  code list.txt 
+ 1604  rm list.txt 
+ 1605  ls > list.txt
+ 1606  code list.txt 
+ 1607  rm list.txt 
+ 1608  ls > list.txt
+ 1609  code list.txt 
+ 1610  rm list.txt 
+ 1611  ls > list.txt
+ 1612  code list.txt 
+ 1613  ls > list.txt
+ 1614  code list.txt 
+ 1615  rm list.txt 
+ 1616  ionic serve
+ 1617  for file in *.jpg; do convert $file -resize 50% v/$file; done
+ 1618  ionic build
+ 1619  ionic cap copy
+ 1620  ls ~/.cache/firebase/emulators/
+ 1621  ls ~/.cache/firebase
+ 1622  curl localhost:8080
+ 1623  curl localhost:8080/iDomainDrivenDesign
+ 1624  curl localhost:8080/firestore/iDomainDrivenDesign
+ 1625  curl localhost:8080/collections/iDomainDrivenDesign
+ 1626  curl localhost:8080/collections
+ 1627  curl localhost:8080/projects/booksreader-e1dd5
+ 1628  curl localhost:8080/v1/projects/booksreader-e1dd5/
+ 1629  curl localhost:8080/v1/projects/booksreader-e1dd5/databases/(default)/documents/
+ 1630  curl localhost:8080/v1/projects/booksreader-e1dd5/databases/documents
+ 1631  curl localhost:8080/v1/projects/booksreader-e1dd5/databases/documents/iDomainDrivenDesign
+ 1632  curl localhost:8080
+ 1633  cd dados
+ 1634  cd tutorials/
+ 1635  ls
+ 1636  mkdir firebase
+ 1637  cd firebase/
+ 1638  code .
+ 1639  exit
+ 1640  node index.mjs 
+ 1641  npm i
+ 1642  npm init
+ 1643  npm i firebase
+ 1644  npm install -g firebase-tools
+ 1645  node index.mjs 
+ 1646  npm i firebase
+ 1647  node index.mjs 
+ 1648  npm install -g firebase-tools
+ 1649  firebase login
+ 1650  firebase projects:list
+ 1651  firebase --help
+ 1652  ls
+ 1653  firebase init
+ 1654  firebase init emulators
+ 1655  firebase emulators:start
+ 1656  java --version
+ 1657  java -version
+ 1658  update-alternatives 
+ 1659  update-alternatives --list
+ 1660  update-alternatives --list java
+ 1661  update-alternatives --config
+ 1662  update-alternatives --config --help
+ 1663  update-alternatives --config java
+ 1664  sudo update-alternatives --config java
+ 1665  java -version
+ 1666  firebase emulators:start
+ 1667  java -version
+ 1668  node index.mjs 
+ 1669  firebase serve
+ 1670  firebase serve --help
+ 1671  cd dados/iddd/iddd/
+ 1672  ls
+ 1673  firebase emulators:start
+ 1674  firebase init emulators
+ 1675  firebase emulators:start
+ 1676  cd dados/tutorials/firebase/
+ 1677  ls
+ 1678  cat package.json
+ 1679  cat index.mjs
+ 1680  code .
+ 1681  firebase emulators:start
+ 1682  python3
+ 1683  pip3 install unidecode
+ 1684  python3
+ 1685  exit
+ 1686  python3
+ 1687  python3 others.py 
+ 1688  python3 ipa_pt.py
+ 1689  find ./ -name oddcast-98663ff7-cc62390d-dd918fe9-1bf4afbe-a749633e.mp3
+ 1690  type Anki
+ 1691  type anki
+ 1692  whereis anki
+ 1693  whereis Anki
+ 1694  top
+ 1695  ls /usr/share/applications
+ 1696  ls /usr/share/applications/*anki*
+ 1697  ls /usr/share/applications/*anki
+ 1698  ls /usr/share/applications/
+ 1699  ls ~/.local/share/applications/
+ 1700  ls ~/.local/share/applications/*anki*
+ 1701  ls ~/.local/share/applications/*java*
+ 1702  top
+ 1703  ps -ef | grep 5102
+ 1704  ls /snap/anki-woodrow/35
+ 1705  ls /snap/anki-woodrow/35/.local/share
+ 1706  ls /snap/anki-woodrow/
+ 1707  ls /snap/anki-woodrow/35 -a
+ 1708  ls /snap/anki-woodrow/35/share
+ 1709  ls /snap/anki-woodrow/35/snap
+ 1710  mkdir /snap/anki-woodrow/35/.
+ 1711  ls /snap/anki-woodrow/35 -a
+ 1712  ls /snap/anki-woodrow/current
+ 1713  ls /snap/anki-woodrow/current -a
+ 1714  ls ~/
+ 1715  ls ~/ -a
+ 1716  ls ~/.local
+ 1717  ls ~/.local/share
+ 1718  ls ~/.local/share/Anki
+ 1719  ls ~/.local/share/Anki2
+ 1720  ls ~/.local/share/Anki2/'User 1'
+ 1721  ls ~/.local/share/Anki2/User\ 1/collection.media
+ 1722  ls ~/.local/share/Anki2/'User 1'/collection.media
+ 1723  ls ~/.local/share/Anki2/'User 1'/collection.media -a
+ 1724  ls ~/.local/share/Anki
+ 1725  ls ~/.local/share/Anki -a
+ 1726  find ~/.local/share -name google-a40efbee-07d2a4d0-144e13d2-e82b2677-1327a426.mp3
+ 1727  find /snap/anki-woodrow -name google-a40efbee-07d2a4d0-144e13d2-e82b2677-1327a426.mp3
+ 1728  find ~/ -type file -name google-a40efbee-07d2a4d0-144e13d2-e82b2677-1327a426.mp3
+ 1729  find ~/ -type f -name google-a40efbee-07d2a4d0-144e13d2-e82b2677-1327a426.mp3
+ 1730  ls /home/element/snap/anki-woodrow/35/.local/share/Anki2/User 1/collection.media
+ 1731  ls /home/element/snap/anki-woodrow/35/.local/share/Anki2/'User 1'/collection.media
+ 1732  cd /home/element/snap/anki-woodrow/35/.local/share/Anki2/'User 1'/collection.media
+ 1733  ls
+ 1734  ln -s 200-phrasals /home/element/dados/ingles/200_phrasal_verbs/common-phrasal-verbs
+ 1735  ls
+ 1736  ln -s /home/element/dados/ingles/200_phrasal_verbs/common-phrasal-verbs ~/snap/anki-woodrow/35/.local/share/Anki2/User\ 1/collection.media/200phrasals
+ 1737  ls
+ 1738  sudo add-apt-repository universe
+ 1739  sudo apt update
+ 1740  sudo apt install mplayer
+ 1741  mplayer
+ 1742  sudo apt install mpv
+ 1743  cd ..
+ 1744  ls
+ 1745  cd ..
+ 1746  ls
+ 1747  cd common
+ 1748  ls
+ 1749  ls -a
+ 1750  cd ~
+ 1751  find ~/ -type f -name collins-7a6742c2-d7cdc43e-b54998ec-c815b82d-8d17d272.mp3
+ 1752  ls /home/element/snap/anki-woodrow/35/.local/share/Anki2/User 1/collection.media/
+ 1753  ls /home/element/snap/anki-woodrow/35/.local/share/Anki2/'User 1'/
+ 1754  ls /snap
+ 1755  ls /snap/anki-woodrow/
+ 1756  ls /snap/anki-woodrow/35
+ 1757  find /snap/anki-woodrow -type f -name collins-7a6742c2-d7cdc43e-b54998ec-c815b82d-8d17d272.mp3
+ 1758  find /snap -type f -name collins-7a6742c2-d7cdc43e-b54998ec-c815b82d-8d17d272.mp3
+ 1759  find ~/ -type f -name collins-7a6742c2-d7cdc43e-b54998ec-c815b82d-8d17d272.mp3
+ 1760  git clone git@github.com:danilobatistaqueiroz/googletts.git
+ 1761  python3 add_fields.py 
+ 1762  cls
+ 1763  clear
+ 1764  python3 add_fields.py 
+ 1765  python3 renamer.py 
+ 1766  python3 add_fields.py 
+ 1767  python3 renamer.py 
+ 1768  python3 google.py
+ 1769  history
+ 1770  python3 remove_dups.py
+ 1771  python3 put_ipa.py 
+ 1772  python3 rename_odd_files.py 
+ 1773  python3 generate.py
+ 1774  python3 gen_significado.py 
+ 1775  python3 speedup2x.py 
+ 1776  python3 simple.py 
+ 1777  python3 gen_phrases.py 
+ 1778  python3 remove_dual.py 
+ 1779  python3 gen_new_phrases.py 
+ 1780  python3 collect_verbs.py
+ 1781  python3 gen_mp3_meaning.py 
+ 1782  find ~ -type f -name google.py
+ 1783  cd dados
+ 1784  ls
+ 1785  find ~/dados/snaps -type f -name google.py
+ 1786  find ~/dados/tutorials -type f -name google.py
+ 1787  find ~/dados/projects -type f -name google.py
+ 1788  python3
+ 1789  python3 gen_significado.py 
+ 1790  python3 gen_phrasal_context.py 
+ 1791  python3 gen_mp3_phrasal_context.py
+ 1792  python3 remove_a.py 
+ 1793  python3 gen_mp3_phrasal_context.py
+ 1794  python3 gen_mp3_significado.py 
+ 1795  python3 gen_verb.py 
+ 1796  python3 gen_meaning.py 
+ 1797  ls
+ 1798  python3 gen_mp3_meaning.py 
+ 1799  cd dados
+ 1800  cd tutorials/
+ 1801  ls
+ 1802  cd ionic/
+ 1803  ls
+ 1804  ionic start local-notifications blank --type=angular
+ 1805  cd ./local-notifications/
+ 1806  ls
+ 1807  npm i @ionic-native/local-notifications
+ 1808  ionic cordova plugin add cordova-plugin-local-notification
+ 1809  npm i cordova-plugin-local-notification
+ 1810  npm install @ionic-native/status-bar
+ 1811  npm i @ionic-native/core
+ 1812  npm i cordova-plugin-device
+ 1813  npm i cordova-plugin-badge
+ 1814  cd ..
+ 1815  ionic start lnotifications blank --type=angular
+ 1816  cd ./lnotifications/
+ 1817  ionic capacitor add android
+ 1818  ionic build
+ 1819  ionic cap copy
+ 1820  code .
+ 1821  ionic build
+ 1822  ionic cap copy
+ 1823  cd ..
+ 1824  ionic start xnotifications blank --type=angular --capacitor
+ 1825  ionic capacitor add android
+ 1826  ionic capacitor add Android
+ 1827  cd xnotifications/
+ 1828  ionic capacitor add Android
+ 1829  ionic capacitor add android
+ 1830  ionic build
+ 1831  ionic cap copy
+ 1832  npx cap sync android
+ 1833  cd ..
+ 1834  ls
+ 1835  cd lnotifications/
+ 1836  npx cap sync android
+ 1837  ionic cap copy
+ 1838  cd ..
+ 1839  cd local-notifications/
+ 1840  npx cap sync android
+ 1841  ionic cap copy
+ 1842  cd ..
+ 1843  ls
+ 1844  cd lnotifications/
+ 1845  npm i cordova-plugin-local-notification
+ 1846  npx cap sync android
+ 1847  npm i cordova-plugin-device
+ 1848  npm i cordova-plugin-badge
+ 1849  npx cap sync android
+ 1850  ionic build
+ 1851  ionic cap copy android
+ 1852  npm i @ionic-native/status-bar
+ 1853  npx cap sync android
+ 1854  ionic build
+ 1855  ionic cap copy android
+ 1856  npm i @ionic-native/local-notifications
+ 1857  npm i @ionic-native/core
+ 1858  npx cap sync android
+ 1859  ionic build
+ 1860  ionic cap copy android
+ 1861  code .
+ 1862  ls
+ 1863  ls src
+ 1864  ls src/app
+ 1865  ls ..local-notifications/src/app
+ 1866  ls ../local-notifications/src/app
+ 1867  cp -R ../local-notifications/src/app ./src/app
+ 1868  cp -R ../local-notifications/src/app ./src/
+ 1869  ionic build
+ 1870  ionic cap copy android
+ 1871  python3 gen_mp3_significado.py 
+ 1872  ionic build
+ 1873  ionic cap add android
+ 1874  ionic cap copy
+ 1875  ionic build
+ 1876  ionic cap copy
+ 1877  npx cap sync
+ 1878  npx cap update
+ 1879  ionic cap add android
+ 1880  [capacitor]        @capacitor/haptics@4.1.0
+ 1881  npx cap sync android
+ 1882  npx cap update
+ 1883  ionic build
+ 1884  ionic cap copy android
+ 1885  npm update
+ 1886  ionic build
+ 1887  ionic cap copy android
+ 1888  ionic
+ 1889  ionic info
+ 1890  cd dados
+ 1891  ls
+ 1892  ls tours
+ 1893  ls projects
+ 1894  ls projects/ionic
+ 1895  ls estudos
+ 1896  ls labs
+ 1897  ls labs/ionic
+ 1898  ls labs/ionic/locNotifi
+ 1899  code labs/ionic/locNotifi
+ 1900  rm -rf labs/ionic/locNotifi
+ 1901  ls labs/ionic/locNotifi
+ 1902  ls labs/ionic/
+ 1903  ls labs/ionic/notif
+ 1904  code labs/ionic/notif
+ 1905  rm -rf labs/ionic/notif
+ 1906  cd tutorials/
+ 1907  cd ionic/
+ 1908  ionic start cap-local-notifications --type=angular --capacitor
+ 1909  cd ./cap-local-notifications/
+ 1910  ionic cap add android
+ 1911  ionic build
+ 1912  npm install @capacitor/local-notifications
+ 1913  npx cap sync
+ 1914  ionic build
+ 1915  ionic cap copy android
+ 1916  ionic capacitor run android --livereload --external
+ 1917  sudo update-alternatives --config java
+ 1918  java -version
+ 1919  echo $JAVA_HOME
+ 1920  ls /usr/lib/jvm/java-11-openjdk-amd64/
+ 1921  export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+ 1922  ionic capacitor run android --livereload --external
+ 1923  git init
+ 1924  ls
+ 1925  xed .gitignore
+ 1926  ged .gitignore
+ 1927  gedit .gitignore
+ 1928  git status
+ 1929  gedit .gitignore
+ 1930  git status
+ 1931  git add .
+ 1932  git status
+ 1933  git commit -m "first commit"
+ 1934  git branch -M main
+ 1935  [200~git remote add origin git@github.com:danilobatistaqueiroz/capacitor-local-notifications.git~
+ 1936  git remote add origin git@github.com:danilobatistaqueiroz/capacitor-local-notifications.git
+ 1937  git push -u origin main
+ 1938  ls
+ 1939  git init
+ 1940  git status
+ 1941  gedit .gitignore
+ 1942  git status
+ 1943  git add .
+ 1944  git commit -m "first commit"
+ 1945  git branch -M main
+ 1946  git remote add origin git@github.com:danilobatistaqueiroz/tts-phrasal-verbs.git
+ 1947  git push -u origin main
+ 1948  ionic capacitor run android --livereload --external
+ 1949  cd dados
+ 1950  cd tutorials/
+ 1951  cd ionic/
+ 1952  ls
+ 1953  ionic start glogin blank --type=angular --capacitor
+ 1954  cd glogin/
+ 1955  npm i @codetrix-studio/capacitor-google-auth
+ 1956  ionic build
+ 1957  ionic cap add android
+ 1958  code .
+ 1959  top
+ 1960  export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+ 1961  ng serve
+ 1962  npm i gapi-script --force
+ 1963  ng serve
+ 1964  npm remove gapi-script
+ 1965  ng serve
+ 1966  keytool -list -v -alias androiddebugkey -keystore ~/.android/debug.keystore
+ 1967  export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+ 1968  ionic capacitor run android --livereload --external
+ 1969  adb devices
+ 1970  ionic capacitor run android --livereload --external
+ 1971  ionic capacitor run android --livereload --external
+ 1972  sudo update-alternatives --config java
+ 1973  export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64/bin/java
+ 1974  ionic capacitor run android --livereload --external
+ 1975  export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+ 1976  ionic capacitor run android --livereload --external
+ 1977  ionic build
+ 1978  ionic cap copy
+ 1979  npm i @codetrix-studio/capacitor-google-auth
+ 1980  npx cap sync
+ 1981  ionic cap sync
+ 1982  ionic cap add android
+ 1983  ionic build
+ 1984  ionic cap copy
+ 1985  npm i
+ 1986  ionic build
+ 1987  ionic cap copy
+ 1988  npm i
+ 1989  ionic build
+ 1990  ionic cap copy
+ 1991  ionic cap add android
+ 1992  ionic cap sync
+ 1993  npx cap sync
+ 1994  ionic cap add android
+ 1995  history > history.txt

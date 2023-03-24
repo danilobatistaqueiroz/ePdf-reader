@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+      <ion-title>Capítulos para o Livro {{book?.name}}</ion-title>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col class="center-items" style="margin-left:1px">
+        <ion-list>
+          <ion-item>
+            <ion-label>Cadastrar novo capítulo</ion-label><ion-input placeholder="Entre o título do capítulo"
+              [(ngModel)]="chapterControl" (ionFocus)="resetError()" (keyup.enter)="onEnter()"></ion-input>
+          </ion-item>
+          <ion-item class="error-msg" *ngIf="errorMessage">
+            {{errorMessage}}
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-button (click)="add()" [disabled]="chapterControl==''">Adicionar</ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <h1>CAPÍTULOS</h1>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid *ngFor="let chapter of chapters.getAll()">
+    <ion-row>
+      <ion-col size="auto" style="margin-left:20px;">{{chapter.title}}</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col style="margin-right:20px;text-align:right">
+        <ion-button color="secondary" routerLink="/setup/chapters/{{chapter.id}}"><ion-icon
+            name="create-outline"></ion-icon></ion-button>
+        <ion-button color="danger" (click)="del(chapter.title)"><ion-icon
+            name="close-circle-outline"></ion-icon></ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

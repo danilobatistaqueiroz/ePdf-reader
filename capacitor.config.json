@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.booksreader",
+	"appName": "BooksReader",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}

@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>bookmarks</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <div *ngFor="let bookmark of allBookmarkers">
+      <ion-item color="medium">
+        <h1>{{bookmark.chapter}}</h1>
+      </ion-item>
+      <ion-item *ngIf="bookmark.pages.length==0">
+        <ion-button fill="clear" (click)="goto(bookmark.chapter,0)"><ion-icon name="arrow-redo-outline"></ion-icon></ion-button>
+        <ion-label>Page 0</ion-label>
+      </ion-item>
+      <ion-item *ngFor="let page of bookmark.pages">
+        <ion-button fill="clear" (click)="goto(bookmark.chapter,page)"><ion-icon name="arrow-redo-outline"></ion-icon></ion-button>
+        <ion-label>Page {{page}}</ion-label>
+      </ion-item>
+    </div>
+  </ion-list>
+</ion-content>

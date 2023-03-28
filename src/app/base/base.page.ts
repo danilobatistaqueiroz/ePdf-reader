@@ -7,9 +7,11 @@ import { AlertController, IonContent, IonSlides, ModalController } from '@ionic/
 
 import { CapacitorVolumeButtons, VolumeButtonPressed } from 'capacitor-volume-buttons';
 
-import { Marker } from '../Marker';
+import { Marker } from '../marker';
 import { TakenotesPage } from '../takenotes/takenotes.page';
 import { PageBookmarksPage } from '../page-bookmarks/page-bookmarks.page';
+
+import { Bookmarks } from '../book-marks';
 
 @Component({
   selector: 'app-base',
@@ -24,18 +26,20 @@ export class BasePage implements OnInit, AfterViewInit {
     page: number = 0;
     totalPhotos: number[]=[]
     photos: string[]=[]
-    chapter: string=''
+    chapterid: string|null='';
+    bookid: string|null='';
     screenOff: boolean = false;
     zoom:boolean=true;
-    timeout:number=0;
-    timer:number=0;
-    timeoutMinutes:number=0;
-    timerMinutes:number=0;
-    countMinutes:number=0;
-
+    
     private penmarkers: Marker[] = [];
     private notes: string='';
     private allHideTimeout:NodeJS.Timeout[] = []
+    private bookmarkers:Bookmarks = new Bookmarks();
+
+    timeout:number=0;
+    seconds:number=0;
+    minutes:number=0;
+    hours:number=0;
 
     constructor(
       public route: ActivatedRoute, 
@@ -47,12 +51,15 @@ export class BasePage implements OnInit, AfterViewInit {
       }
   
     ngOnInit() {
+      this.chapterid = this.route.snapshot.paramMap.get('chapterid')
+      this.bookid = this.route.snapshot.paramMap.get('bookid')
       this.screenOff = (localStorage.getItem('screenOff')??'false').toLowerCase()==='true';
       this.volumeButtons();
       this.zoom=true;
       this.notebookOn();
-      this.notes = localStorage.getItem(`notes_${this.chapter}`)??'';
+      this.notes = localStorage.getItem(`notes_${this.bookid}_${this.chapterid}`)??'';
       this.changeDetectorRef.detectChanges();
+      this.bookmarkers.loadAll(localStorage.getItem(`bookmarkers_${this.bookid}_${this.chapterid}`));
     }
   
     ngAfterViewInit(): void {
@@ -60,28 +67,47 @@ export class BasePage implements OnInit, AfterViewInit {
       if (this.route.snapshot.paramMap.get('page')) {
         this.page = parseInt(this.route.snapshot.paramMap.get('page')??'0');
       } else {
-        this.page = parseInt(localStorage.getItem(`currentPage_${this.chapter}`)??'0')
+        let page = localStorage.getItem(`currentPage_${this.bookid}_${this.chapterid}`);
+        if(page)
+          this.page = parseInt(page);
+        else
+          this.page = 0;
       }
       this.slider.slideTo(this.page,200);
       this.loadPenmarkers();
-      this.startTimerMinutes();
+      this.startTimer();
     }
 
-    startTimerMinutes(){
-      this.timerMinutes=1;
-      this.countMinutes=0;
-      this.timeoutMinutes = setInterval(this.countrMinutes,1000,this);
-      localStorage.setItem('active_timer_minutes',this.timeoutMinutes.toString());
+    startTimer(){
+      this.seconds=0;
+      this.minutes=0;
+      this.hours=0;
+      this.timeout = window.setInterval(this.timer,1000,this);
+      localStorage.setItem('active_timer',String(this.timeout));
+      localStorage.setItem(`time_${this.bookid}_${this.chapterid}`,'{"hours":'+this.hours+',"minutes":'+this.minutes+',"seconds":'+this.seconds+'}');
+    }
+
+    timer(self:this){
+      self.seconds+=1;
+      self.changeDetectorRef?.detectChanges();
+      if(self.seconds>60) {
+        self.seconds=0;
+        self.minutes=self.minutes+1;
+        if(self.minutes>60) {
+          self.minutes=0;
+          self.hours=self.hours+1;
+          if(self.hours>60) {
+            self.hours=self.hours+1;
+          }
+        }
+      }
     }
 
     async gotoBookmark(){
-      let bookmarkers:string[]|undefined = localStorage.getItem(`bookmarkers_${this.chapter}`)?.split(',');
-      console.log(bookmarkers??0);
-      
       const modal = await this.modalCtrl.create({
         component: PageBookmarksPage,
         componentProps: { 
-          pages: bookmarkers??0,
+          bookmarks: this.bookmarkers,
         }
       });
       modal.present();
@@ -105,17 +131,12 @@ export class BasePage implements OnInit, AfterViewInit {
   
       if (role === 'confirm') {
         this.notes = data??'';
-        localStorage.setItem(`notes_${this.chapter}`,this.notes);
+        localStorage.setItem(`notes_${this.bookid}_${this.chapterid}`,this.notes);
       }
     }
 
     changeZoom() {
       this.zoom=!this.zoom;
-      if(this.zoom==false) {
-        //this.notebookOn();
-      } else {
-        //this.notebookOff();
-      }
     }
   
     home() {
@@ -133,7 +154,7 @@ export class BasePage implements OnInit, AfterViewInit {
       const notebook:HTMLCanvasElement = document.getElementById('notebook') as HTMLCanvasElement;
       const context = notebook.getContext('2d');
       context!.clearRect(0, 0, notebook.width, notebook.height);
-      localStorage.setItem(`penmarkers_${this.chapter}_${this.page}`,'[]');
+      localStorage.setItem(`penmarkers_${this.bookid}_${this.chapterid}_${this.page}`,'[]');
       this.penmarkers = [];
     }
     
@@ -143,7 +164,7 @@ export class BasePage implements OnInit, AfterViewInit {
       else 
         this.page = data.page;
       this.slider.slideTo(this.page,200);
-      localStorage.setItem(`currentPage_${this.chapter}`,String(this.page))
+      localStorage.setItem(`currentPage_${this.bookid}_${this.chapterid}`,String(this.page))
     }
 
     async choosePage() {
@@ -176,48 +197,8 @@ export class BasePage implements OnInit, AfterViewInit {
       });
     }
 
-    private countrMinutes(self:this) {
-      self.timerMinutes=self.timerMinutes+1;
-      localStorage.setItem('counter_minutes',String(self.timerMinutes));
-      self.changeDetectorRef?.detectChanges();
-      if(self.timerMinutes>60) {
-        self.countMinutes+=1;
-        self.timerMinutes=0;
-      }
-    }
-    private countr(self:this) {
-      self.timer=self.timer+1;
-      self.changeDetectorRef?.detectChanges();
-      if(self.timer>300) {
-        clearInterval(self.timeout);
-        self.timer=0;
-      }
-    }
-    async chronometer() {
-      if(this.timer==0 || isNaN(this.timer))
-        this.startTimer();
-    }
-    timerToggle() {
-      if(this.timer==0 || isNaN(this.timer)){
-        this.startTimer();
-        (document.querySelector("#btTimer") as HTMLButtonElement)!.style.opacity = '0.8';
-      } else {
-        this.stopTimer();
-      }
-    }
-    startTimer(){
-      this.timer=1;
-      this.timeout = setInterval(this.countr,1000,this);
-      localStorage.setItem('active_timer',String(this.timeout));
-    }
-    stopTimer() {
-      clearInterval(this.timeout);
-      this.timer=0;
-      (document.querySelector("#btTimer") as HTMLButtonElement)!.style.opacity = '0.3';
-    }
-
     isBottom:boolean=false;
-    backs:number=0;
+
     back() {
       if(this.zoom) {
         if (this.isBottom==true) {
@@ -225,6 +206,7 @@ export class BasePage implements OnInit, AfterViewInit {
           this.ioncontent.scrollToTop();
           this.loadPenmarkers();
         } else {
+          if(this.page==0) return;
           this.isBottom=true;
           this.pageBack();
           this.ioncontent.scrollToBottom();
@@ -241,6 +223,7 @@ export class BasePage implements OnInit, AfterViewInit {
           this.ioncontent.scrollToBottom();
           this.loadPenmarkers();
         } else {
+          if(this.page==this.totalPhotos.length-1) return;
           this.isBottom=false;
           this.pageForward();
           this.ioncontent.scrollToTop();
@@ -251,24 +234,18 @@ export class BasePage implements OnInit, AfterViewInit {
     }
 
     pageForward() {
-      this.backs=0;
-      if(this.page==this.totalPhotos.length) return;
+      if(this.page==this.totalPhotos.length-1) return;
       this.slider.slideNext();
       this.page++;
       this.loadPenmarkers();
       this.allHideTimeout.forEach(t => clearTimeout(t));
       this.allHideTimeout.push(setTimeout(this.hideBtPage,3000));
       this.showBtPage();
-      localStorage.setItem(`currentPage_${this.chapter}`,String(this.page));
+      localStorage.setItem(`currentPage_${this.bookid}_${this.chapterid}`,String(this.page));
       this.changeDetectorRef.detectChanges();
     }
 
     pageBack() {
-      this.backs++;
-      if(this.backs==3){
-        this.backs=0;
-        this.timerToggle();
-      }
       if(this.page==0) return;
       this.slider.slidePrev();
       this.page--;
@@ -276,26 +253,47 @@ export class BasePage implements OnInit, AfterViewInit {
       this.allHideTimeout.forEach(t => clearTimeout(t));
       this.allHideTimeout.push(setTimeout(this.hideBtPage,3000));
       this.showBtPage();
-      localStorage.setItem(`currentPage_${this.chapter}`,String(this.page));
+      localStorage.setItem(`currentPage_${this.bookid}_${this.chapterid}`,String(this.page));
       this.changeDetectorRef.detectChanges();
     }
 
     isPageBookmarked() {
-      if (this.getBookmarkedPages().find(p => p == this.page.toString())) {
+      if (this.bookmarkers?.getById(this.page)) {
         return true;
       }
       return false;
     }
 
-    bookmarkPage() {
-      let all = this.getBookmarkedPages();
-      if(all.find(p => p==this.page.toString()))
-        all = all.filter(p => p!=this.page.toString());
+    async bookmarkPage() {
+      let description = await this.bookmarkDescription();
+      if(this.bookmarkers.getById(this.page))
+        this.bookmarkers.del(this.page);
       else
-        all.push(this.page.toString());
-        
-      localStorage.setItem(`bookmarkers_${this.chapter}`,all.toString());
+        this.bookmarkers.add(this.page, description??'');
+      localStorage.setItem(`bookmarkers_${this.bookid}_${this.chapterid}`,this.bookmarkers.getAllJson());
+    }
 
+    async bookmarkDescription():Promise<string|undefined> {
+      const alert = await this.alertController.create({
+        header: 'Insira uma descrição',
+        buttons: [
+          {
+            text:'OK',
+            handler: (alertData) => {
+              
+            }
+          }
+        ],
+        inputs: [
+          {
+            name: 'description',
+            placeholder: 'Descrição',
+          }
+        ]
+      });
+      await alert.present();
+      const { role, data } = await alert.onDidDismiss();
+      return data.values.description;
     }
   
     private hideBtPage(){
@@ -309,12 +307,12 @@ export class BasePage implements OnInit, AfterViewInit {
       this.penmarkers = []
       if(this.zoom) {
         if(this.isBottom) {
-          this.penmarkers = JSON.parse(localStorage.getItem(`penmarkers_zoom_bottom_${this.chapter}_${this.page}`)??'[]');
+          this.penmarkers = JSON.parse(localStorage.getItem(`penmarkers_zoom_bottom_${this.bookid}_${this.chapterid}_${this.page}`)??'[]');
         } else {
-          this.penmarkers = JSON.parse(localStorage.getItem(`penmarkers_zoom_top_${this.chapter}_${this.page}`)??'[]');
+          this.penmarkers = JSON.parse(localStorage.getItem(`penmarkers_zoom_top_${this.bookid}_${this.chapterid}_${this.page}`)??'[]');
         }
       } else {
-        this.penmarkers = JSON.parse(localStorage.getItem(`penmarkers_${this.chapter}_${this.page}`)??'[]');
+        this.penmarkers = JSON.parse(localStorage.getItem(`penmarkers_${this.bookid}_${this.chapterid}_${this.page}`)??'[]');
       }
       const notebook:HTMLCanvasElement = document.getElementById('notebook') as HTMLCanvasElement;
       const context = notebook.getContext('2d');
@@ -328,18 +326,6 @@ export class BasePage implements OnInit, AfterViewInit {
       }
     }
 
-    private getBookmarkedPages():string[] {
-      let pagesMarked = localStorage.getItem(`bookmarkers_${this.chapter}`);
-      let all:string[] = [];
-      if(pagesMarked)
-        all = pagesMarked.split(',');
-      return all;
-    }
-  
-    private notebookOff() {
-      const notebook:HTMLCanvasElement = document.getElementById('notebook') as HTMLCanvasElement;
-      notebook.style.display='none';
-    }
     private notebookOn() {
       const notebook:HTMLCanvasElement = document.getElementById('notebook') as HTMLCanvasElement;
       notebook.style.display='block';
@@ -358,7 +344,7 @@ export class BasePage implements OnInit, AfterViewInit {
       notebook.width=w;
       notebook.height=h;
       
-      this.penmarkers = JSON.parse(localStorage.getItem(`penmarkers_${this.chapter}_${this.page}`)??'[]');
+      this.penmarkers = JSON.parse(localStorage.getItem(`penmarkers_${this.bookid}_${this.chapterid}_${this.page}`)??'[]');
       for(let mark of this.penmarkers) {
         this.drawLine(context,mark.x1,mark.y1,mark.x2,mark.y2);
       }
@@ -369,13 +355,6 @@ export class BasePage implements OnInit, AfterViewInit {
         y = e.offsetY;
         y1 = y
         isDrawing = true;
-      });
-      
-      notebook.addEventListener('mousemove', (e) => {
-        //if (isDrawing) {
-          //this.drawLine(context, x, y, e.offsetX, y);
-          //x = e.offsetX;
-        //}
       });
 
       window.addEventListener('keydown', (e:KeyboardEvent) => {
@@ -394,12 +373,12 @@ export class BasePage implements OnInit, AfterViewInit {
           this.penmarkers.push({x1:x1, y1:y1, x2:x2, y2:y2});
           if(this.zoom) {
             if(this.isBottom) {
-              localStorage.setItem(`penmarkers_zoom_bottom_${this.chapter}_${this.page}`,JSON.stringify(this.penmarkers));
+              localStorage.setItem(`penmarkers_zoom_bottom_${this.bookid}_${this.chapterid}_${this.page}`,JSON.stringify(this.penmarkers));
             } else {
-              localStorage.setItem(`penmarkers_zoom_top_${this.chapter}_${this.page}`,JSON.stringify(this.penmarkers));
+              localStorage.setItem(`penmarkers_zoom_top_${this.bookid}_${this.chapterid}_${this.page}`,JSON.stringify(this.penmarkers));
             }
           } else {
-            localStorage.setItem(`penmarkers_${this.chapter}_${this.page}`,JSON.stringify(this.penmarkers));
+            localStorage.setItem(`penmarkers_${this.bookid}_${this.chapterid}_${this.page}`,JSON.stringify(this.penmarkers));
           }
           x = 0;
           y = 0;
@@ -414,12 +393,7 @@ export class BasePage implements OnInit, AfterViewInit {
         y1 = y;
         isDrawing = true;
       });
-      notebook.addEventListener('touchmove', (e:TouchEvent) => {
-        // if (isDrawing) {
-        //   this.drawLine(context, x, y, e.changedTouches[0].pageX, y);
-        //   x = e.changedTouches[0].pageX;
-        // }
-      });
+
       notebook.addEventListener('touchend', (e:TouchEvent) => {
         if (isDrawing) {
           if (e.changedTouches[0]){
@@ -429,12 +403,12 @@ export class BasePage implements OnInit, AfterViewInit {
             this.penmarkers.push({x1:x1, y1:y1, x2:x2, y2:y2});
             if(this.zoom) {
               if(this.isBottom) {
-                localStorage.setItem(`penmarkers_zoom_bottom_${this.chapter}_${this.page}`,JSON.stringify(this.penmarkers));
+                localStorage.setItem(`penmarkers_zoom_bottom_${this.bookid}_${this.chapterid}_${this.page}`,JSON.stringify(this.penmarkers));
               } else {
-                localStorage.setItem(`penmarkers_zoom_top_${this.chapter}_${this.page}`,JSON.stringify(this.penmarkers));
+                localStorage.setItem(`penmarkers_zoom_top_${this.bookid}_${this.chapterid}_${this.page}`,JSON.stringify(this.penmarkers));
               }
             } else {
-              localStorage.setItem(`penmarkers_${this.chapter}_${this.page}`,JSON.stringify(this.penmarkers));
+              localStorage.setItem(`penmarkers_${this.bookid}_${this.chapterid}_${this.page}`,JSON.stringify(this.penmarkers));
             }
             x = 0;
             y = 0;

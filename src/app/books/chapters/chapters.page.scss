@@ -1,0 +1,31 @@
+#cover {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height:100%;
+  max-height:100%;
+  object-fit: content;
+  z-index: -1;
+}
+
+.land-img{
+  transform: translate(-50%,-50%) rotate(90deg) !important;
+}
+
+ion-card{
+  width:160px;
+  cursor: pointer;
+  background-color: #3880ff;
+  color:white;
+  text-align: center;
+  box-shadow: 1px 1px 7px #4b4b4b;
+}
+ion-card:hover {
+  background-color: #3171e0;
+}
+ion-card:active {
+  background-color: #3171e0;
+  box-shadow: 0 1px 1px #3d3d3d;
+  transform: translateY(1px);
+}

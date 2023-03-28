@@ -5,7 +5,7 @@
         <ion-col>
           <ion-slides #slides [ngClass]="zoom?'':'background'">
             <ion-slide *ngFor="let photo of totalPhotos">
-              <img src="../../assets/{{chapter}}/{{photos[photo]}}" [ngClass]="zoom?'zoom-img':'big-img'" />
+              <img src="data:image/png;base64, {{photos[photo]}}" [ngClass]="zoom?'zoom-img':'big-img'" />
             </ion-slide>
           </ion-slides>
         </ion-col>
@@ -21,12 +21,11 @@
     <ion-button id="btGoto" color="medium" size="small" (click)="gotoBookmark()"><ion-icon name="arrow-redo-outline"></ion-icon></ion-button>
   </div>
   <div id="dvTimerMin">
-    <ion-button id="btCountMinutes" color="medium" size="small" (click)="startTimerMinutes()">{{countMinutes}}</ion-button>
-    <ion-button id="btTimerMinutes" color="medium" size="small">{{timerMinutes}}</ion-button>
+    <span>{{hours}}:{{minutes}}</span>
   </div>
   <canvas id="notebook">
   </canvas>
-  <ion-button id="btPage" color="medium" size="small" (click)="choosePage()">{{page}}/{{totalPhotos.length}}</ion-button>
+  <ion-button id="btPage" color="medium" size="small" (click)="choosePage()">{{page}}/{{totalPhotos.length-1}}</ion-button>
   <div id="dvRubber">
     <ion-button id="btHome" (click)="home()" color="medium" size="small"><ion-icon name="home"></ion-icon></ion-button>
     <ion-button id="btRubber" (click)="rubber()" color="medium" size="small"><ion-icon name="close-outline"></ion-icon></ion-button>
@@ -41,11 +40,6 @@
     <ion-row>
       <ion-col>
         <ion-button (click)="takenotes()" color="medium" size="small"><ion-icon name="receipt-outline"></ion-icon></ion-button>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>
-        <ion-button id="btTimer" color="medium" size="small" (click)="timerToggle()">{{timer}}</ion-button>
       </ion-col>
     </ion-row>
   </ion-grid>

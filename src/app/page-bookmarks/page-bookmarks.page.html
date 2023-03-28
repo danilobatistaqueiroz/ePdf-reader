@@ -3,8 +3,9 @@
 </ion-header>
 <ion-content class="ion-padding">
   <ion-list>
-    <ion-item *ngFor="let page of pages;">
-      <ion-button fill="outline" (click)="confirm(page)">{{page}}</ion-button>
+    <ion-item *ngFor="let bookmark of bookmarks.getAll();">
+      <ion-button fill="outline" color="dark" (click)="confirm(bookmark.pagenum)">{{bookmark.pagenum}}</ion-button>
+      <ion-label (click)="confirm(bookmark.pagenum)">{{bookmark.description}}</ion-label>
     </ion-item>
 <ion-footer>
   <ion-button color="medium" (click)="cancel()">Cancel</ion-button>

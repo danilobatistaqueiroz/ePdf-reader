@@ -39,7 +39,7 @@
     </ion-row>
     <ion-row>
       <ion-col style="margin-right:20px;text-align:right">
-        <ion-button color="secondary" routerLink="/setup/chapters/{{chapter.id}}"><ion-icon
+        <ion-button color="secondary" routerLink="/setup/pages/{{book?.id}}/{{chapter.id}}"><ion-icon
             name="create-outline"></ion-icon></ion-button>
         <ion-button color="danger" (click)="del(chapter.title)"><ion-icon
             name="close-circle-outline"></ion-icon></ion-button>

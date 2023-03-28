@@ -6,8 +6,15 @@ export class Chapters {
     if(content)
       this.chapters=JSON.parse(content);
   }
+  public max():number {
+    if(!this.chapters || this.chapters.length==0)
+      return 0;
+    return this.chapters.reduce(function (p, v) {
+      return ( p > v ? p : v );
+    }).id;
+  }
   public add(title:string) {
-    this.chapters.push(new Chapter(this.chapters.length,title));
+    this.chapters.push(new Chapter(this.max()+1,title));
   }
   public del(title:string) {
     this.chapters = this.chapters.filter(b => b.title != title);

@@ -26,7 +26,7 @@ export class ChaptersPage implements OnInit {
     let content = localStorage.getItem('books')??'';
     this.books.loadAll(content);
     this.book = this.books.getById(bookid);
-    this.chapters.loadAll(localStorage.getItem('chapters'));
+    this.chapters.loadAll(localStorage.getItem(`chapters_${bookid}`));
   }
 
   add(){
@@ -35,7 +35,7 @@ export class ChaptersPage implements OnInit {
       return;
     }
     this.chapters.add(this.chapterControl);
-    localStorage.setItem('chapters',this.chapters.getAllJson());
+    localStorage.setItem(`chapters_${this.book?.id}`,this.chapters.getAllJson());
     this.chapterControl='';
   }
 
@@ -57,7 +57,7 @@ export class ChaptersPage implements OnInit {
     await alert.present();
     const { role } = await alert.onDidDismiss();
     if (role == 'confirm') {
-      localStorage.setItem('chapters',this.chapters.getAllJson());
+      localStorage.setItem(`chapters_${this.book?.id}`,this.chapters.getAllJson());
     }
   }
 

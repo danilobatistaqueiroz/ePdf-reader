@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+      <ion-title>Capítulo {{chapter?.title}}</ion-title>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col class="center-items">
+        <ion-list>
+          <ion-item>
+          <label>Adicione uma página</label>
+          <ion-button size="small" (click)="addImage()"><ion-icon name="image-outline"></ion-icon></ion-button>
+          </ion-item>
+          </ion-list>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-button size="small" (click)="pickImages()"><ion-icon name="image-outline"></ion-icon></ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <h1>PÁGINAS</h1>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid *ngFor="let page of pages.getAll()">
+    <ion-row>
+      <ion-col style="margin-right:20px;text-align:right">
+        <ion-img src="data:image/png;base64,{{page.base64}}"/>
+        <ion-button color="danger" (click)="del(page.base64)"><ion-icon
+            name="close-circle-outline"></ion-icon></ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-list>
+    <ion-reorder-group [disabled]="false" (ionItemReorder)="handleReorder($any($event))">
+      <ion-item *ngFor="let img of imgs" size="4">
+        <img [src]="img.src" />
+        <ion-reorder slot="end"></ion-reorder>
+      </ion-item>
+    </ion-reorder-group>
+  </ion-list>
+</ion-content>

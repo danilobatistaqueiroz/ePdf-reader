@@ -5,8 +5,15 @@ export class Books {
   public loadAll(content:string){
     this.books=JSON.parse(content);
   }
+  public max():number {
+    if(!this.books || this.books.length==0)
+      return 0;
+    return this.books.reduce(function (p, v) {
+      return ( p > v ? p : v );
+    }).id;
+  }
   public add(name:string,cover:string|undefined) {
-    this.books.push(new Book(this.books.length,name,cover));
+    this.books.push(new Book(this.max()+1,name,cover));
   }
   public del(name:string) {
     this.books = this.books.filter(b => b.name != name);

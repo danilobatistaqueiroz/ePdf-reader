@@ -33,7 +33,6 @@
     "@ionic/angular": "^6.1.9",
     "@ionic/pwa-elements": "^3.1.1",
     "capacitor-volume-buttons": "^1.0.0",
-    "cordova-plugin-screen-orientation": "^3.0.2",
     "es6-promise-plugin": "^4.2.2",
     "ionicons": "^6.0.3",
     "rxjs": "~7.5.0",

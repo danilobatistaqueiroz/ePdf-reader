@@ -16,11 +16,9 @@ export class AppComponent {
       if (event instanceof NavigationEnd) {
           // Hide loading indicator
           //detects navigation
-          let timeout = Number.parseInt(localStorage.getItem('active_timer')??'0');
-          clearTimeout(timeout);
           if(event.url=='/menu'){
-            let timeoutMinutes = Number.parseInt(localStorage.getItem('active_timer_minutes')??'0');
-            clearTimeout(timeoutMinutes);
+            let timeout = Number.parseInt(localStorage.getItem('active_timer')??'0');
+            clearTimeout(timeout);
           }
       }
 

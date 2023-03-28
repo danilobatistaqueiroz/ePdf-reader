@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
+import { Bookmarks } from '../book-marks';
 
 @Component({
   selector: 'app-page-bookmarks',
@@ -8,7 +9,7 @@ import { ModalController } from '@ionic/angular';
 })
 export class PageBookmarksPage implements OnInit {
 
-  pages:string[]=[];
+  bookmarks!:Bookmarks;
 
   constructor(private modalCtrl: ModalController) { }
 
@@ -19,7 +20,7 @@ export class PageBookmarksPage implements OnInit {
     return this.modalCtrl.dismiss(null, 'cancel');
   }
 
-  confirm(page:string) {
+  confirm(page:number) {
     return this.modalCtrl.dismiss(page, 'confirm');
   }
 

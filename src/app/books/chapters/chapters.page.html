@@ -8,14 +8,22 @@
 </ion-header>
 
 <ion-content>
-  <img src="data:image/png;base64, {{cover}}" class="big-img" />
+  <img id="cover" src="data:image/png;base64, {{cover}}" [ngClass]="orientation=='landscape'?'land-img':'port-img'" />
   <ion-grid>
-    <ion-row *ngFor="let chapter of chapters.getAll()">
-      <ion-col><ion-button fill="solid" [routerLink]="['/chapter/{{chapter.id}}']">{{chapter.title}}</ion-button></ion-col>
+    <ion-row *ngFor="let r of rows">
+      <ion-col *ngFor="let chapter of r">
+        <ion-card>
+          <ion-card-content (click)="gotoReader(chapter.id)">
+            {{chapter.title}}
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
     </ion-row>
   </ion-grid>
 </ion-content>
 
 <ion-footer>
-  <ion-button [routerLink]="['/bookmarks']" fill="clear"><ion-icon name="bookmark"></ion-icon></ion-button>
+  <ion-toolbar>
+    <ion-button [routerLink]="['/bookmarks',bookid]" fill="clear"><ion-icon name="bookmark"></ion-icon></ion-button>
+  </ion-toolbar>
 </ion-footer>

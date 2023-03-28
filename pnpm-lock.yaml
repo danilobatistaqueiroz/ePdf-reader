@@ -18,22 +18,24 @@ specifiers:
   '@angular/router': ^15.0.0
   '@capacitor/android': 4.6.2
   '@capacitor/app': 4.1.1
+  '@capacitor/camera': ^4.1.4
   '@capacitor/cli': 4.6.2
   '@capacitor/core': 4.6.2
   '@capacitor/filesystem': ^4.1.4
   '@capacitor/haptics': 4.1.0
   '@capacitor/keyboard': 4.1.1
+  '@capacitor/preferences': ^4.0.2
   '@capacitor/status-bar': 4.1.1
   '@ionic-native/core': ^5.36.0
   '@ionic-native/insomnia': ^5.36.0
   '@ionic/angular': ^6.1.9
   '@ionic/angular-toolkit': ^6.0.0
+  '@ionic/pwa-elements': ^3.1.1
   '@types/jasmine': ~4.0.0
   '@types/node': ^12.11.1
   '@typescript-eslint/eslint-plugin': 5.3.0
   '@typescript-eslint/parser': 5.3.0
   capacitor-volume-buttons: ^1.0.0
-  cordova-plugin-screen-orientation: ^3.0.2
   es6-promise-plugin: ^4.2.2
   eslint: ^7.6.0
   eslint-plugin-import: 2.22.1
@@ -63,16 +65,18 @@ dependencies:
   '@angular/router': 15.2.4_6dc7d14344e53d725b8d6315b10e092a
   '@capacitor/android': 4.6.2_@capacitor+core@4.6.2
   '@capacitor/app': 4.1.1_@capacitor+core@4.6.2
+  '@capacitor/camera': 4.1.4_@capacitor+core@4.6.2
   '@capacitor/core': 4.6.2
   '@capacitor/filesystem': 4.1.4_@capacitor+core@4.6.2
   '@capacitor/haptics': 4.1.0_@capacitor+core@4.6.2
   '@capacitor/keyboard': 4.1.1_@capacitor+core@4.6.2
+  '@capacitor/preferences': 4.0.2_@capacitor+core@4.6.2
   '@capacitor/status-bar': 4.1.1_@capacitor+core@4.6.2
   '@ionic-native/core': 5.36.0_rxjs@7.5.7
   '@ionic-native/insomnia': 5.36.0_18ef26ce191b2840ae08b73132d261da
   '@ionic/angular': 6.6.3_fecb8d3c5cf7782c5f865cefd077a379
+  '@ionic/pwa-elements': 3.1.1
   capacitor-volume-buttons: 1.0.0_@capacitor+core@4.6.2
-  cordova-plugin-screen-orientation: 3.0.3
   es6-promise-plugin: 4.2.2
   ionicons: 6.1.3
   rxjs: 7.5.7
@@ -1839,6 +1843,14 @@ packages:
       '@capacitor/core': 4.6.2
     dev: false
 
+  /@capacitor/camera/4.1.4_@capacitor+core@4.6.2:
+    resolution: {integrity: sha512-7f4n7PlnstYsdGyxc0Kc4hIyS6csFLOjXvffm7pJsuy9pSo+kfdOPdYgGg360QwbUAmA+Yv+J1ZW1eFIwgvWrQ==}
+    peerDependencies:
+      '@capacitor/core': ^4.0.0
+    dependencies:
+      '@capacitor/core': 4.6.2
+    dev: false
+
   /@capacitor/cli/4.6.2:
     resolution: {integrity: sha512-035RIynwnmusv9Z/1jPDP+i7Z54ZY3qxNtf6cA69TxZlnozAqBkjPyHGuaAugxSn+4jzCobSLE3456VHhHMx1g==}
     engines: {node: '>=12.4.0'}
@@ -1889,6 +1901,14 @@ packages:
 
   /@capacitor/keyboard/4.1.1_@capacitor+core@4.6.2:
     resolution: {integrity: sha512-fdC7u2TeG4BqwC0LnPnhOdya31C4QKdhk/8pc5lxI9X5jyYAetMCN1kEkKa7KREw4DdzXotJt27B9BXxAza6og==}
+    peerDependencies:
+      '@capacitor/core': ^4.0.0
+    dependencies:
+      '@capacitor/core': 4.6.2
+    dev: false
+
+  /@capacitor/preferences/4.0.2_@capacitor+core@4.6.2:
+    resolution: {integrity: sha512-HgcRkMdVHSIV3TeQLZFmCaCeMWQ25wLyZZ7dA2f8Rw81Q1Nroxsi7HxTEGNqrWKSN9PNKBJD8vChr6eB2GNtZg==}
     peerDependencies:
       '@capacitor/core': ^4.0.0
     dependencies:
@@ -2214,6 +2234,10 @@ packages:
       '@stencil/core': 2.22.3
       ionicons: 6.1.3
       tslib: 2.5.0
+    dev: false
+
+  /@ionic/pwa-elements/3.1.1:
+    resolution: {integrity: sha512-BoEX1pSrKn5dP4VQwaf8DweAmT4ynmpW+9f6oj/W1xLe54bmuXcUY07ziuZX1DLu50xHSYcO5qJ/dbYC/w6wgA==}
     dev: false
 
   /@ionic/utils-array/2.1.5:
@@ -3831,11 +3855,6 @@ packages:
       serialize-javascript: 6.0.1
       webpack: 5.76.1_esbuild@0.17.8
     dev: true
-
-  /cordova-plugin-screen-orientation/3.0.3:
-    resolution: {integrity: sha512-Dt8lO8BECZfE/pKbYQZ72Wr811fYMScxw7c9v/gJ3etOPCBrgl8xIHOOZu4nY2ehRyxFPtZi3VeGvIG+3DZoZQ==}
-    engines: {cordovaDependencies: {4.0.0: {cordova: '>100'}}}
-    dev: false
 
   /core-js-compat/3.29.1:
     resolution: {integrity: sha512-QmchCua884D8wWskMX8tW5ydINzd8oSJVx38lx/pVkFGqztxt73GYre3pm/hyYq8bPf+MW5In4I/uRShFDsbrA==}

@@ -22,8 +22,15 @@ ion-button {
 #dvTimerMin {
   position: fixed;
   z-index: 15;
-  top:0;
-  left:calc(100% - 100px);
+  top:4px;
+  left:calc(100% - 45px);
+  color:white;
+  background-color:#8b7254;
+  padding:6px;
+  opacity: 0.3;
+  border-radius:5px;
+  box-shadow:1px 1px 7px #4b4b4b;
+  font-size:14px;
 }
 
 #dvGoto {

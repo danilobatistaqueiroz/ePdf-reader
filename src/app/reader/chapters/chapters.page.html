@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+      <ion-title>Capítulos</ion-title>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <img *ngIf="cover" id="cover" src="data:image/png;base64, {{cover}}" [ngClass]="orientation=='landscape'?'land-img':'port-img'" />
+  <ion-grid>
+    <ion-row *ngFor="let r of rows">
+      <ion-col *ngFor="let chapter of r">
+        <ion-card>
+          <ion-card-content (click)="gotoReaderPages(chapter.id)">
+            {{chapter.title}}
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-button [routerLink]="['/bookmarks',bookId]" fill="clear"><ion-icon name="bookmark"></ion-icon></ion-button>
+  </ion-toolbar>
+</ion-footer>

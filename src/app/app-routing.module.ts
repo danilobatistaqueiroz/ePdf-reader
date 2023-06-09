@@ -11,13 +11,10 @@ const routes: Routes = [
     path: 'menu',
     loadChildren: () => import('./menu/menu.module').then( m => m.MenuPageModule)
   },
+
   {
-    path: 'bookmarks/:bookid',
+    path: 'bookmarks/:bookId',
     loadChildren: () => import('./bookmarks/bookmarks.module').then( m => m.BookmarksPageModule)
-  },
-  {
-    path: 'base',
-    loadChildren: () => import('./base/base.module').then( m => m.BasePageModule)
   },
   {
     path: 'takenotes',
@@ -27,28 +24,34 @@ const routes: Routes = [
     path: 'page-bookmarks',
     loadChildren: () => import('./page-bookmarks/page-bookmarks.module').then( m => m.PageBookmarksPageModule)
   },
+
+  {
+    path: 'reader/books',
+    loadChildren: () => import('./reader/books/books.module').then( m => m.BooksPageModule)
+  },
+  {
+    path: 'reader/chapters',
+    loadChildren: () => import('./reader/chapters/chapters.module').then( m => m.ChaptersPageModule)
+  },
+  {
+    path: 'reader/chapters/:bookId',
+    loadChildren: () => import('./reader/chapters/chapters.module').then( m => m.ChaptersPageModule)
+  },
+  {
+    path: 'reader/pages/:bookId/:chapterId',
+    loadChildren: () => import('./reader/pages/pages.module').then( m => m.PagesPageModule)
+  },
+
   {
     path: 'setup/books',
     loadChildren: () => import('./setup/books/books.module').then( m => m.BooksPageModule)
   },
   {
-    path: 'setup/chapters/:bookid',
+    path: 'setup/chapters/:bookId',
     loadChildren: () => import('./setup/chapters/chapters.module').then( m => m.ChaptersPageModule)
   },
   {
-    path: 'chapter/:bookid/:chapterid',
-    loadChildren: () => import('./chapter/chapter.module').then( m => m.ChapterPageModule)
-  },
-  {
-    path: 'books/menu',
-    loadChildren: () => import('./books/menu/menu.module').then( m => m.MenuPageModule)
-  },
-  {
-    path: 'books/:id/chapters',
-    loadChildren: () => import('./books/chapters/chapters.module').then( m => m.ChaptersPageModule)
-  },
-  {
-    path: 'setup/pages/:bookid/:chapterid',
+    path: 'setup/pages/:bookId/:chapterId',
     loadChildren: () => import('./setup/pages/pages.module').then( m => m.PagesPageModule)
   },
 ];

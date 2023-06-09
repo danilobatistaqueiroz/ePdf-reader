@@ -1,6 +1,6 @@
 {
-	"appId": "io.ionic.booksreader",
-	"appName": "BooksReader",
+	"appId": "br.com.eprintsreader",
+	"appName": "ePrintsReader",
 	"webDir": "www",
 	"bundledWebRuntime": false
 }

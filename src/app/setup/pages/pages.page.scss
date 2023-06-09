@@ -1,3 +1,51 @@
 ion-reorder-group img {
-  width:98%;
+  max-width:98%;
+}
+
+@media only screen and (max-width: 500px) {
+  ion-reorder-group ion-img {
+    max-width:98%;
+  }
+}
+@media only screen and (min-width: 501px) {
+  ion-reorder-group ion-img {
+    max-width:450px;
+  }
+}
+
+ion-reorder-group ion-item ion-button {
+  display:inline;
+}
+
+ion-reorder-group ion-reorder div {
+  display:flex;
+  flex-direction: column;
+}
+
+ion-spinner {
+  position: fixed;
+  left: calc((50vw - 50%) * -1);
+  top: calc((50vh - 50%) * -1);
+  transform: translate(calc(50vw - 50%), calc(50vh - 50%));
+}
+
+.loaded-page {
+  position: fixed;
+  left: calc((50vw - 50%) * -1);
+  transform: translate(calc(50vw - 50%));
+  bottom: 50px;
+  display:block;
+  z-index: 10;
+  box-shadow: 5px 10px 5px rgba(0, 0, 0, 0.5);
+  padding:30px;
+  border-color:black;
+  border-style:solid;
+  border-width:1px;
+}
+.loader-hidden {
+  display:none;
+}
+
+ion-toolbar {
+  --ion-toolbar-background: black;
 }

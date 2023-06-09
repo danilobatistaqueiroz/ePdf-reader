@@ -23,22 +23,22 @@ npm i es6-promise-plugin
 npx cap sync
 npx cap update
 ionic build
-ionic cap copy
+ionic cap copy android
 
 export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
 ionic capacitor run android --livereload --external
 ```
 
 
-É possível ouvir os eventos de volumeButtonDown, eventos de teclado, mouse, etc.
+Com o código abaixo os botões up e down do celular são bloqueados, ficam sem efeito algum
 
-o arquivo encontra-se no AndroidStudio em:  
+o arquivo encontra-se no AndroidStudio em projeto "capacitor-android":  
 Android->app->capacitor-android->java->com.getcapacitor->CapacitorWebView
 
 no vscode encontra-se em:  
 node_modules/@capacitor/android/capacitor/src/main/java/com/getcapacitor/CapacitorWebView.java
 
-exemplo de código para desabilitar volumeButtonDown e Up:  
+exemplo de código para desabilitar (assim não altera o som) volumeButtonDown e Up:  
 ```java
 @Override
 public boolean dispatchKeyEvent(KeyEvent event) {
@@ -101,6 +101,8 @@ e no typescript:
 
 ## Criando o Splash Screen
 
+no Android Studio clique com o direito do mouse na pasta java e escolha novo Activity -> Empty Activity
+
 criar uma nova Empty Activity e nomeá-la SplashActivity:  
 SplashActivity.java
 ```java
@@ -110,6 +112,11 @@ import android.content.Intent;
 import android.os.Handler;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.WindowManager;
+import android.view.animation.AccelerateInterpolator;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
+import android.widget.ImageView;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -117,9 +124,20 @@ public class SplashActivity extends AppCompatActivity {
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
 
+    getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+      WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+    setContentView(R.layout.activity_splash);
+
+    Animation fadeOut = new AlphaAnimation(1, 0);
+    fadeOut.setInterpolator(new AccelerateInterpolator());
+    fadeOut.setStartOffset(300);
+    fadeOut.setDuration(800);
+    ImageView image = findViewById(R.id.imageView3);
+
+    image.setAnimation(fadeOut);
+
     new Handler().postDelayed(new Runnable() {
-
-
       @Override
       public void run() {
         // This method will be executed once the timer is over
@@ -127,11 +145,61 @@ public class SplashActivity extends AppCompatActivity {
         startActivity(i);
         finish();
       }
-    }, 3000);
+    }, 1500);
   }
 }
-
 ```
+
+em AndroidManifest.xml  
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="io.ionic.booksreader">
+    <!-- Permissions -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".SplashActivity"
+            android:theme="@style/Theme.Design.NoActionBar"
+          android:exported="true">
+          <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+          </intent-filter>
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|smallestScreenSize|screenLayout|uiMode"
+            android:exported="true"
+            android:label="@string/title_activity_main"
+            android:launchMode="singleTask"
+            android:theme="@style/AppTheme.NoActionBarLaunch">
+        </activity>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+    </application>
+
+</manifest>
+```
+
+no Android Studio:  
+clique com o direito do mouse na pasta res e escolha novo "Android Resource File"
 
 Criar um arquivo em res/drawable/splash_background.xml  
 ```xml
@@ -147,14 +215,33 @@ Criar um arquivo em res/drawable/splash_background.xml
 </layer-list>
 ```
 
-Adicionar um style no arquivo res/layout/styles.xml  
+Adicionar um style no arquivo res/values/styles.xml  
 ```xml
-    <style name="AppTheme.NoActionBarLaunch" parent="AppTheme.NoActionBar">
-      <item name="android:background">@drawable/splash</item>
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
     </style>
+
+    <style name="AppTheme.NoActionBar" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:background">@null</item>
+    </style>
+
+
+    <style name="AppTheme.NoActionBarLaunch" parent="Theme.SplashScreen">
+        <item name="android:background">@drawable/splash</item>
+    </style>
+</resources>
 ```
 
-res/layout/activity_splash.xml
+res/layout/activity_splash.xml  
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -165,15 +252,27 @@ res/layout/activity_splash.xml
   tools:context=".SplashActivity">
 
   <ImageView
-    android:id="@+id/imageView"
-    android:layout_width="72dp"
-    android:layout_height="72dp"
-    android:src="@drawable/splash"
+    android:id="@+id/imageView3"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintLeft_toLeftOf="parent"
-    app:layout_constraintRight_toRightOf="parent"
-    app:layout_constraintTop_toTopOf="parent" />
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:srcCompat="@drawable/splash" />
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+```
+
+em res/values/strings.xml  
+```xml
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">BooksReader</string>
+    <string name="title_activity_main">BooksReader</string>
+    <string name="package_name">io.ionic.booksreader</string>
+    <string name="custom_url_scheme">io.ionic.booksreader</string>
+</resources>
 ```
 
 
@@ -205,6 +304,10 @@ https://icon.kitchen
 
 ## Gerando a imagem de Splash Screen
 
+tutoriais:  
+https://www.youtube.com/watch?v=qrad_A5L45E  
+https://www.youtube.com/watch?v=9O1lI0BRCCE  
+
 https://apetools.webprofusion.com/#/tools/imagegorilla
 
 selecione uma imagem 2732x2732 de preferência png
@@ -220,14 +323,17 @@ drawable-xhdpi,
 drawable-xxhdpi,
 drawable-xxxhdpi
 
-para:  
+e gire as imagens:  
 drawable-port-hdpi,
 drawable-port-mdpi,
 drawable-port-xhdpi,
 drawable-port-xxhdpi,
 drawable-port-xxxhdpi
 
-copiar para a pasta android/app/src/main/res
+se não existir as pastas drawable-land-* ou drawable-port-*  
+crie as pastas correspondentes e gire a imagem caso necessário.  
+
+copiar para a pasta android/app/src/main/res/drawable/splash
 
 
 ## Animated Splash Screen
@@ -302,3 +408,14 @@ const app = initializeApp(firebaseConfig);
 
 
 
+
+
+##### PUBLICANDO NA GOOGLE PLAYSTORE ######
+
+https://www.youtube.com/watch?v=-84SHTrPDOg
+
+https://www.youtube.com/watch?v=Vc557vMv5JQ
+
+https://www.youtube.com/watch?v=Wq-KbOj62oM
+
+https://www.youtube.com/watch?v=pvXMIfDepxA

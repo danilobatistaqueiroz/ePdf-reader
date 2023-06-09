@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
-import { Book } from '../../book';
-import { Books } from '../../books';
+import { Book } from '../../entities/book';
+import { Books } from '../../entities/books';
 
 import { Camera, CameraResultType, CameraSource, Photo } from '@capacitor/camera';
 import { Filesystem, Directory } from '@capacitor/filesystem';
@@ -26,7 +26,8 @@ export class BooksPage implements OnInit {
 
   ngOnInit() {
     let content = localStorage.getItem('books')??'';
-    this.books.loadAll(content);
+    if(content!='')
+      this.books.loadAll(content);
   }
 
   edit(){
@@ -73,8 +74,8 @@ export class BooksPage implements OnInit {
     await alert.present();
     const { role } = await alert.onDidDismiss();
     if (role == 'confirm') {
-      let bookid = this.books.getByName(book)?.id;
-      if(JSON.parse(localStorage.getItem(`chapters_${bookid}`)??'[]').length>0){
+      let bookId = this.books.getByName(book)?.id;
+      if(JSON.parse(localStorage.getItem(`chapters_${bookId}`)??'[]').length>0){
         const alert = await this.alertController.create({
           header: 'Remover Capítulos',
           message: 'O livro tem capítulos cadastrados, deseja remover tudo?',
@@ -92,19 +93,19 @@ export class BooksPage implements OnInit {
         await alert.present();
         const { role } = await alert.onDidDismiss();
         if (role == 'confirm') {
-          let chapters = JSON.parse(localStorage.getItem(`chapters_${bookid}`)??'[]');
-          localStorage.removeItem(`chapters_${bookid}`);
+          let chapters = JSON.parse(localStorage.getItem(`chapters_${bookId}`)??'[]');
+          localStorage.removeItem(`chapters_${bookId}`);
           for(let chapter of chapters) {
-            localStorage.removeItem(`currentPage_${bookid}_${chapter.id}`);
-            localStorage.removeItem(`bookmarkers_${bookid}_${chapter.id}`);
-            let pages = JSON.parse(localStorage.getItem(`pages_${bookid}_${chapter.id}`)??'[]');
-            localStorage.removeItem(`pages_${bookid}_${chapter.id}`);
-            localStorage.removeItem(`time_${bookid}_${chapter.id}`);
+            localStorage.removeItem(`currentPage_${bookId}_${chapter.id}`);
+            localStorage.removeItem(`bookmarkers_${bookId}_${chapter.id}`);
+            let pages = JSON.parse(localStorage.getItem(`pages_${bookId}_${chapter.id}`)??'[]');
+            localStorage.removeItem(`pages_${bookId}_${chapter.id}`);
+            localStorage.removeItem(`time_${bookId}_${chapter.id}`);
             for(let pagenum = 0; pagenum < pages.length; pagenum++){
-              localStorage.removeItem(`penmarkers_${bookid}_${chapter.id}_${pagenum}`);
-              localStorage.removeItem(`penmarkers_zoom_top_${bookid}_${chapter.id}_${pagenum}`);
-              localStorage.removeItem(`penmarkers_zoom_bottom_${bookid}_${chapter.id}_${pagenum}`);
-              localStorage.removeItem(`penmarkers_zoom_${bookid}_${chapter.id}_${pagenum}`);
+              localStorage.removeItem(`penmarkers_${bookId}_${chapter.id}_${pagenum}`);
+              localStorage.removeItem(`penmarkers_zoom_top_${bookId}_${chapter.id}_${pagenum}`);
+              localStorage.removeItem(`penmarkers_zoom_bottom_${bookId}_${chapter.id}_${pagenum}`);
+              localStorage.removeItem(`penmarkers_zoom_${bookId}_${chapter.id}_${pagenum}`);
             }
           }
           this.books.del(book);

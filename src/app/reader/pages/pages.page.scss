@@ -1,0 +1,110 @@
+#mydiv {
+  position: absolute;
+  z-index: 9;
+}
+#mydivheader {
+  z-index: 10;
+}
+
+#dvMarker {
+  position: fixed;
+  z-index: 9;
+  top:0;
+  left:0;
+}
+#btMarker {
+  z-index: 10;
+}
+ion-button {
+  opacity: 0.3;
+}
+
+#dvTimerMin {
+  position: fixed;
+  z-index: 15;
+  top:4px;
+  left:calc(100% - 45px);
+  color:white;
+  background-color:#8b7254;
+  padding:6px;
+  opacity: 0.3;
+  border-radius:5px;
+  box-shadow:1px 1px 7px #4b4b4b;
+  font-size:14px;
+}
+
+#dvGoto {
+  position: fixed;
+  z-index: 15;
+  top:0;
+  left:50%;
+}
+
+#btPage {
+  position: fixed;
+  z-index: 11;
+  top:50%;
+  left:0;
+  --border-radius: 0;
+  --box-shadow:0;
+}
+
+#gridRight {
+  position: fixed;
+  z-index: 12;
+  top:40%;
+  right:0;
+}
+
+#notebook {
+  border: 1px solid black;
+  position:fixed;
+  top:0;
+  left:0;
+  z-index:2;
+  //width: 1000px;
+  //height: 960px;
+}
+
+#dvRubber {
+  position: fixed;
+  z-index: 8;
+  top:90%;
+}
+
+.big-img {
+  height:97.4v;
+  max-height:97.4v;
+}
+.zoom-img {
+  width:100%;
+  height:auto;
+  object-fit: cover;
+}
+
+.background {
+  width: 98%; 
+  height: 98%; 
+  position: fixed; 
+  left: 0px; 
+  top: 0px; 
+  z-index: -1; /* Ensure div tag stays behind content; -999 might work, too. */
+}
+
+.loaded-page {
+  position: fixed;
+  left: calc((50vw - 50%) * -1);
+  top: calc((50vh - 50%) * -1);
+  transform: translate(calc(50vw - 50%), calc(50vh - 50%));
+  display:block;
+  z-index: 10;
+  box-shadow: 5px 10px 5px rgba(0, 0, 0, 0.5);
+  padding:30px;
+  background-color: #111;
+  border-color:black;
+  border-style:solid;
+  border-width:1px;
+}
+.loader-hidden {
+  display:none;
+}

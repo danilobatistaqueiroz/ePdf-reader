@@ -1,0 +1,47 @@
+<ion-content #ioncontent>
+  <div id="container">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-slides #slides [ngClass]="zoom?'':'background'">
+            <ion-slide *ngFor="let photo of totalPhotos">
+              <img src="data:image/png;base64, {{photos[photo]}}" [ngClass]="zoom?'zoom-img':'big-img'" />
+            </ion-slide>
+          </ion-slides>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  <div id="dvMarker">
+    <ion-button id="back" (click)="back()" color="medium" size="small"><ion-icon name="chevron-back-outline"></ion-icon></ion-button>
+    <ion-button id="btMarker" (click)="bookmarkPage()" color="medium" size="small" [style.opacity]="isPageBookmarked()?'1':'0.3'"><ion-icon name="bookmark"></ion-icon></ion-button>
+    <ion-button id="forward" (click)="forward()" color="medium" size="small"><ion-icon name="chevron-forward-outline"></ion-icon></ion-button>
+  </div>
+  <div id="dvGoto">
+    <ion-button id="btGoto" color="medium" size="small" (click)="gotoBookmark()"><ion-icon name="arrow-redo-outline"></ion-icon></ion-button>
+  </div>
+  <div id="dvTimerMin">
+    <span>{{hours}}:{{minutes}}</span>
+  </div>
+  <canvas id="notebook">
+  </canvas>
+  <ion-button id="btPage" color="medium" size="small" (click)="choosePage()">{{position.pageId}}/{{totalPhotos.length}}</ion-button>
+  <div id="dvRubber">
+    <ion-button id="btHome" (click)="home()" color="medium" size="small"><ion-icon name="home"></ion-icon></ion-button>
+    <ion-button id="btRubber" (click)="rubber()" color="medium" size="small"><ion-icon name="close-outline"></ion-icon></ion-button>
+    <ion-button id="btEye" (click)="eye()" color="medium" size="small"><ion-icon [name]="screenOff?'eye-off-outline':'eye'"></ion-icon></ion-button>
+  </div>
+  <ion-grid id="gridRight">
+    <ion-row>
+      <ion-col>
+        <ion-button id="btZoom" (click)="changeZoom()" color="medium" size="small"><ion-icon name="glasses-outline"></ion-icon></ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-button (click)="takenotes()" color="medium" size="small"><ion-icon name="receipt-outline"></ion-icon></ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+<div [class]="loadingPages?'loaded-page':'loader-hidden'">loading pages...</div>

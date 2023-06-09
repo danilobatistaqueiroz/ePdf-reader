@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
-import { Bookmarks } from '../book-marks';
+import { Bookmarks } from '../entities/bookmarks';
 
 @Component({
   selector: 'app-page-bookmarks',

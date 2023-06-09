@@ -16,9 +16,6 @@
             <ion-label>Cadastrar novo capítulo</ion-label><ion-input placeholder="Entre o título do capítulo"
               [(ngModel)]="chapterControl" (ionFocus)="resetError()" (keyup.enter)="onEnter()"></ion-input>
           </ion-item>
-          <ion-item class="error-msg" *ngIf="errorMessage">
-            {{errorMessage}}
-          </ion-item>
         </ion-list>
       </ion-col>
     </ion-row>

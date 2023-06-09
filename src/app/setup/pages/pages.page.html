@@ -1,50 +1,46 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
-      <ion-title>Capítulo {{chapter?.title}}</ion-title>
-    </ion-buttons>
-  </ion-toolbar>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-button size="small" (click)="pickImages()"><ion-icon name="images-outline"></ion-icon></ion-button>
+          <ion-button size="small" (click)="getPhoto()"><ion-icon name="image-outline"></ion-icon></ion-button>
+          Resolução:
+          <ion-radio-group value="1600" #resolutions>
+            <ion-radio value="0">Original</ion-radio>Original
+            <ion-radio value="1600">Alta</ion-radio>Alta
+            <ion-radio value="800">Média</ion-radio>Média
+            <ion-radio value="600">Baixa</ion-radio>Baixa
+          </ion-radio-group>
+        </ion-col>
+        <ion-col>
+          <label>Remover todas as páginas</label>
+          <ion-button size="small" color="danger" (click)="cleanAllImages()"><ion-icon name="close-circle-outline"></ion-icon></ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
 </ion-header>
 
-<ion-content>
-  <ion-grid>
-    <ion-row>
-      <ion-col class="center-items">
-        <ion-list>
-          <ion-item>
-          <label>Adicione uma página</label>
-          <ion-button size="small" (click)="addImage()"><ion-icon name="image-outline"></ion-icon></ion-button>
-          </ion-item>
-          </ion-list>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>
-        <ion-button size="small" (click)="pickImages()"><ion-icon name="image-outline"></ion-icon></ion-button>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>
-        <h1>PÁGINAS</h1>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-  <ion-grid *ngFor="let page of pages.getAll()">
-    <ion-row>
-      <ion-col style="margin-right:20px;text-align:right">
-        <ion-img src="data:image/png;base64,{{page.base64}}"/>
-        <ion-button color="danger" (click)="del(page.base64)"><ion-icon
-            name="close-circle-outline"></ion-icon></ion-button>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+<ion-content [scrollEvents]="true" (ionScroll)="handleScroll($event)" #ioncontent>
+  <ion-spinner name="circular" *ngIf="waiting"></ion-spinner>
   <ion-list>
     <ion-reorder-group [disabled]="false" (ionItemReorder)="handleReorder($any($event))">
-      <ion-item *ngFor="let img of imgs" size="4">
-        <img [src]="img.src" />
-        <ion-reorder slot="end"></ion-reorder>
+      <ion-item *ngFor="let page of pages.prints">
+        <ion-img src="data:image/png;base64,{{page.base64}}"/>
+        <div>
+          <ion-button color="danger" (click)="del(page.pageId,page.base64)">
+            <ion-icon name="close-circle-outline"></ion-icon>
+          </ion-button>
+          <span>{{page.pageId}}</span>
+          <ion-reorder slot="end"></ion-reorder>
+        </div>
       </ion-item>
     </ion-reorder-group>
   </ion-list>
+  <div [class]="loading?'loaded-page':'loader-hidden'">page {{loadCounter}} loaded!</div>
+  <ion-infinite-scroll (ionInfinite)="onIonInfinite($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 </ion-content>
+<ion-footer>
+  <ion-label>total de páginas {{cntImg}}</ion-label>
+</ion-footer>

@@ -11,7 +11,7 @@
         <ion-button routerLink="/setup/books"><ion-icon name="create-outline"></ion-icon></ion-button><div>Cadastro de Livros</div>
       </ion-col>
       <ion-col>
-        <ion-button routerLink="/books/menu"><ion-icon name="book-outline"></ion-icon></ion-button><div>Ler um Livro</div>
+        <ion-button routerLink="/reader/books"><ion-icon name="book-outline"></ion-icon></ion-button><div>Ler um Livro</div>
       </ion-col>
     </ion-row>
   </ion-grid>
@@ -20,5 +20,6 @@
   <ion-row>
     <ion-button fill="clear" (click)="rotate()"><ion-icon [name]="portrait?'phone-portrait-outline':'phone-landscape-outline'"></ion-icon></ion-button>
     <ion-button fill="clear" (click)="toggleDark()"><ion-icon name="contrast-outline"></ion-icon></ion-button>
+    <ion-button (click)="export()" fill="clear"><ion-icon name="download-outline"></ion-icon></ion-button>
   </ion-row>
 </ion-footer>
